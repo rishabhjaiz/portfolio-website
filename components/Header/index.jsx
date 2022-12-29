@@ -18,14 +18,16 @@ function Header() {
   }, []);
 
   return (
-    <div className="flex flex-col px-8 justify-center">
+    <div className="flex flex-col justify-center px-8">
       {/** Understand position relative better. */}
       {/** Max width is you can be anything at all below the max width. */}
       {/** margin auto, nav is block level element which take up 100% if they have flex they shrink to content siez, taking the available space and evenly distbuting it margin auto */}
       <nav className="flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16 text-gray-900 bg-gray-50 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
-        <div>
+        <div className="ml-[-0.60rem]">
           {HEADER_LABELS.map((h) => (
-            <AnchorTag href={h.href}>{h.label}</AnchorTag>
+            <AnchorTag href={h.href} openNewTab={false}>
+              {h.label}
+            </AnchorTag>
           ))}
         </div>
         <button

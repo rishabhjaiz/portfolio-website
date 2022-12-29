@@ -4,7 +4,7 @@ import Link from "next/link";
 import cn from "classnames";
 
 /** Study this html elemnt once what is href in anchor tage */
-function index({ href, children }) {
+function index({ href, children, openNewTab = true }) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
@@ -19,6 +19,8 @@ function index({ href, children }) {
       )}
       href={href}
       key={href}
+      target={openNewTab ? "_blank" : undefined}
+      rel={openNewTab ? "noopener noreferrer" : undefined}
     >
       {children}
     </Link>
